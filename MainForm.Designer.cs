@@ -185,6 +185,7 @@
             button_SaveCr.TabIndex = 6;
             button_SaveCr.Text = "Save Crosshair";
             button_SaveCr.UseVisualStyleBackColor = true;
+            button_SaveCr.Click += button_saveCr_Click;
             // 
             // button_setCr
             // 
@@ -194,6 +195,7 @@
             button_setCr.TabIndex = 5;
             button_setCr.Text = "Set crosshair";
             button_setCr.UseVisualStyleBackColor = true;
+            button_setCr.Click += button_setCr_Click;
             // 
             // label2
             // 

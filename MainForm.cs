@@ -155,6 +155,33 @@ namespace krCrosshair
                 MessageBox.Show($"Failed to load profile: {selectedProfile}");
             }
         }
+        private void button_setCr_Click(object sender, EventArgs e)
+        {
+            if (pictureBox_CrPreview.Image == null)
+            {
+                MessageBox.Show("Превью пустое.");
+                return;
+            }
+
+            try
+            {
+                string activeCrosshairPath = Path.Combine(GetAppStoragePath(), "active.png");
+                pictureBox_CrPreview.Image.Save
+                    (
+                    activeCrosshairPath,
+                    System.Drawing.Imaging.ImageFormat.Png
+                    );
+
+                Settings.Default.ActiveSize = (int)numericSize.Value;
+                Settings.Default.Save();
+
+                MessageBox.Show("the crosshair has been installed successfully");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Failed to set cosshair: {ex.Message}");
+            }
+        }
         private void ApplyCrosshairSize()
         {
             int newSize = (int)numericSize.Value;
