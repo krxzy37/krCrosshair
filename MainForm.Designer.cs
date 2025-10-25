@@ -32,10 +32,10 @@
             tabControlMain = new TabControl();
             tabPage_uploadCross = new TabPage();
             numericSize = new NumericUpDown();
-            listBox2 = new ListBox();
+            listBox_profiles = new ListBox();
             button4 = new Button();
             button3 = new Button();
-            button2 = new Button();
+            button_deleteCr = new Button();
             label3 = new Label();
             button_SaveCr = new Button();
             button_setCr = new Button();
@@ -104,10 +104,10 @@
             // 
             tabPage_uploadCross.BackColor = Color.WhiteSmoke;
             tabPage_uploadCross.Controls.Add(numericSize);
-            tabPage_uploadCross.Controls.Add(listBox2);
+            tabPage_uploadCross.Controls.Add(listBox_profiles);
             tabPage_uploadCross.Controls.Add(button4);
             tabPage_uploadCross.Controls.Add(button3);
-            tabPage_uploadCross.Controls.Add(button2);
+            tabPage_uploadCross.Controls.Add(button_deleteCr);
             tabPage_uploadCross.Controls.Add(label3);
             tabPage_uploadCross.Controls.Add(button_SaveCr);
             tabPage_uploadCross.Controls.Add(button_setCr);
@@ -130,14 +130,15 @@
             numericSize.TabIndex = 17;
             numericSize.ValueChanged += numericSize_ValueChanged;
             // 
-            // listBox2
+            // listBox_profiles
             // 
-            listBox2.FormattingEnabled = true;
-            listBox2.ItemHeight = 25;
-            listBox2.Location = new Point(6, 297);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(511, 79);
-            listBox2.TabIndex = 16;
+            listBox_profiles.FormattingEnabled = true;
+            listBox_profiles.ItemHeight = 25;
+            listBox_profiles.Location = new Point(6, 297);
+            listBox_profiles.Name = "listBox_profiles";
+            listBox_profiles.Size = new Size(511, 79);
+            listBox_profiles.TabIndex = 16;
+            listBox_profiles.SelectedIndexChanged += listBox_profiles_SelectedIndexChanged;
             // 
             // button4
             // 
@@ -157,14 +158,15 @@
             button3.Text = "Show";
             button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // button_deleteCr
             // 
-            button2.Location = new Point(6, 123);
-            button2.Name = "button2";
-            button2.Size = new Size(282, 35);
-            button2.TabIndex = 13;
-            button2.Text = "Delete crosshair";
-            button2.UseVisualStyleBackColor = true;
+            button_deleteCr.Location = new Point(6, 123);
+            button_deleteCr.Name = "button_deleteCr";
+            button_deleteCr.Size = new Size(282, 35);
+            button_deleteCr.TabIndex = 13;
+            button_deleteCr.Text = "Delete crosshair";
+            button_deleteCr.UseVisualStyleBackColor = true;
+            button_deleteCr.Click += button_deleteCr_Click;
             // 
             // label3
             // 
@@ -576,7 +578,7 @@
         private Button button_SaveCr;
         private Button button4;
         private Button button3;
-        private Button button2;
+        private Button button_deleteCr;
         private Label label4;
         private PictureBox pictureBox4;
         private TabPage tabPage_hotKeys;
@@ -600,7 +602,7 @@
         private ColorDialog colorDialog1;
         private TrackBar trackBar1;
         private ListBox listBox1;
-        private ListBox listBox2;
+        private ListBox listBox_profiles;
         private Label label10;
         private Button button11;
         private Button button10;

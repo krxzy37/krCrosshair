@@ -22,7 +22,7 @@ namespace krCrosshair
             {
                 pictureBox_CrPreview.Image = new Bitmap(activeCrosshairPath);
                 numericSize.Value = Settings.Default.ActiveSize;
-                ApplyCrosshaitSize();
+                ApplyCrosshairSize();
             }
         }
         public MainForm()
@@ -67,7 +67,7 @@ namespace krCrosshair
             }
 
 
-            ApplyCrosshaitSize();
+            ApplyCrosshairSize();
         }
         private void button_saveCr_Click(object sender, EventArgs e)
         {
@@ -107,7 +107,55 @@ namespace krCrosshair
                 MessageBox.Show($"Save error: {ex.Message}");
             }
         }
-        private void ApplyCrosshaitSize()
+        private void button_deleteCr_Click(object sender, EventArgs e)
+        {
+            if(listBox_profiles == null)
+            {
+                MessageBox.Show("First, select a profile from the list.");
+                return;
+            }
+
+            var selectedProfile = (CrosshairProfile)listBox_profiles.SelectedItem;
+            var result = MessageBox.Show($"Are you sure you want to delete '{selectedProfile.Name}'?",
+                                            "Delete", MessageBoxButtons.YesNo);
+
+            if(result == DialogResult.Yes)
+            {
+                profiles.Remove(selectedProfile);
+                SaveProfiileList();
+                UpdateListBox();
+
+                try
+                {
+                    File.Delete(selectedProfile.FilePath);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show($"Failed to delete file: {ex.Message}");
+                }
+            }
+
+        }
+        private void listBox_profiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox_profiles.SelectedItems == null)
+                return;
+
+            var selectedProfile = (CrosshairProfile)listBox_profiles.SelectedItem;
+
+            try
+            {
+                pictureBox_CrPreview.Image?.Dispose();
+                pictureBox_CrPreview.Image = new Bitmap(selectedProfile.FilePath);
+                numericSize.Value = selectedProfile.Size;
+                ApplyCrosshairSize();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Failed to load profile: {selectedProfile}");
+            }
+        }
+        private void ApplyCrosshairSize()
         {
             int newSize = (int)numericSize.Value;
 
