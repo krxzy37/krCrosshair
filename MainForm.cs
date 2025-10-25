@@ -11,7 +11,6 @@ namespace krCrosshair
 
         private List<CrosshairProfile> profiles = new List<CrosshairProfile>();
 
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoadProfilesList();
@@ -109,7 +108,7 @@ namespace krCrosshair
         }
         private void button_deleteCr_Click(object sender, EventArgs e)
         {
-            if(listBox_profiles == null)
+            if (listBox_profiles == null || listBox_profiles.SelectedItem == null)
             {
                 MessageBox.Show("First, select a profile from the list.");
                 return;
@@ -119,17 +118,17 @@ namespace krCrosshair
             var result = MessageBox.Show($"Are you sure you want to delete '{selectedProfile.Name}'?",
                                             "Delete", MessageBoxButtons.YesNo);
 
-            if(result == DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
                 profiles.Remove(selectedProfile);
-                SaveProfiileList();
+                SaveProfilesList();
                 UpdateListBox();
 
                 try
                 {
                     File.Delete(selectedProfile.FilePath);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show($"Failed to delete file: {ex.Message}");
                 }
@@ -138,7 +137,7 @@ namespace krCrosshair
         }
         private void listBox_profiles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox_profiles.SelectedItems == null)
+            if (listBox_profiles.SelectedItem == null)
                 return;
 
             var selectedProfile = (CrosshairProfile)listBox_profiles.SelectedItem;
@@ -146,13 +145,20 @@ namespace krCrosshair
             try
             {
                 pictureBox_CrPreview.Image?.Dispose();
-                pictureBox_CrPreview.Image = new Bitmap(selectedProfile.FilePath);
-                numericSize.Value = selectedProfile.Size;
-                ApplyCrosshairSize();
+                if (!string.IsNullOrEmpty(selectedProfile.FilePath) && File.Exists(selectedProfile.FilePath))
+                {
+                    pictureBox_CrPreview.Image = new Bitmap(selectedProfile.FilePath);
+                    numericSize.Value = selectedProfile.Size;
+                    ApplyCrosshairSize();
+                }
+                else
+                {
+                    MessageBox.Show($"Profile image file not found: {selectedProfile.FilePath}");
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load profile: {selectedProfile}");
+                MessageBox.Show($"Failed to load profile: {selectedProfile}\nerror: {ex.Message}");
             }
         }
         private void button_setCr_Click(object sender, EventArgs e)
@@ -203,7 +209,37 @@ namespace krCrosshair
             }
             return appFolder;
         }
-      
+        private void UpdateListBox()
+        {
+            listBox_profiles.DataSource = null;
+            listBox_profiles.DataSource = profiles;
+            listBox_profiles.DisplayMember = "Name";
+        }
+        private void LoadProfilesList()
+        {
+            string json = Settings.Default.SavedProfilesJson;
+            if (!string.IsNullOrEmpty(json))
+            {
+                try
+                {
+                    var deserialized = JsonSerializer.Deserialize<List<CrosshairProfile>>(json);
+                    profiles = deserialized ?? new List<CrosshairProfile>();
+                }
+                catch
+                {
+                    profiles = new List<CrosshairProfile>();
+                }
+            }
+        }
+        private void SaveProfilesList()
+        {
+            string json = JsonSerializer.Serialize(profiles);
+
+
+            Settings.Default.SavedProfilesJson = json;
+            Settings.Default.Save();
+        }
+       
 
     }
 }

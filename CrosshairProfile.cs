@@ -10,8 +10,8 @@ namespace krCrosshair
 {
     internal class CrosshairProfile
     {
-        public string Name { get; set; }
-        public string FilePath { get; set; }
+        public required string Name { get; set; }
+        public required string FilePath { get; set; }
         public int Size { get; set; }
     }
 }
