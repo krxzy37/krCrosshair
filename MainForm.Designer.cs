@@ -31,18 +31,32 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             tabControlMain = new TabControl();
             tabPage_uploadCross = new TabPage();
+            numericSize = new NumericUpDown();
+            listBox2 = new ListBox();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
             label3 = new Label();
-            button1 = new Button();
+            button_SaveCr = new Button();
             button_setCr = new Button();
             label2 = new Label();
-            textBox_sizeCr = new TextBox();
             button_addCr = new Button();
             label1 = new Label();
             pictureBox_CrPreview = new PictureBox();
             tabPage_createOwn = new TabPage();
+            listBox1 = new ListBox();
+            trackBar1 = new TrackBar();
+            panel1 = new Panel();
+            label9 = new Label();
+            button8 = new Button();
+            button7 = new Button();
+            button6 = new Button();
+            button5 = new Button();
+            checkBox2 = new CheckBox();
+            checkBox1 = new CheckBox();
+            numericUpDown3 = new NumericUpDown();
+            numericUpDown2 = new NumericUpDown();
+            numericUpDown1 = new NumericUpDown();
             label13 = new Label();
             label12 = new Label();
             label8 = new Label();
@@ -52,30 +66,27 @@
             label4 = new Label();
             pictureBox4 = new PictureBox();
             tabPage_hotKeys = new TabPage();
-            numericUpDown1 = new NumericUpDown();
-            numericUpDown2 = new NumericUpDown();
-            numericUpDown3 = new NumericUpDown();
-            checkBox1 = new CheckBox();
-            checkBox2 = new CheckBox();
-            button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
+            button11 = new Button();
+            button10 = new Button();
+            button9 = new Button();
+            textBox3 = new TextBox();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
+            label14 = new Label();
+            label11 = new Label();
+            label10 = new Label();
             colorDialog1 = new ColorDialog();
-            label9 = new Label();
-            panel1 = new Panel();
-            trackBar1 = new TrackBar();
-            listBox1 = new ListBox();
-            listBox2 = new ListBox();
             tabControlMain.SuspendLayout();
             tabPage_uploadCross.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericSize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox_CrPreview).BeginInit();
             tabPage_createOwn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            tabPage_hotKeys.SuspendLayout();
             SuspendLayout();
             // 
             // tabControlMain
@@ -92,15 +103,15 @@
             // tabPage_uploadCross
             // 
             tabPage_uploadCross.BackColor = Color.WhiteSmoke;
+            tabPage_uploadCross.Controls.Add(numericSize);
             tabPage_uploadCross.Controls.Add(listBox2);
             tabPage_uploadCross.Controls.Add(button4);
             tabPage_uploadCross.Controls.Add(button3);
             tabPage_uploadCross.Controls.Add(button2);
             tabPage_uploadCross.Controls.Add(label3);
-            tabPage_uploadCross.Controls.Add(button1);
+            tabPage_uploadCross.Controls.Add(button_SaveCr);
             tabPage_uploadCross.Controls.Add(button_setCr);
             tabPage_uploadCross.Controls.Add(label2);
-            tabPage_uploadCross.Controls.Add(textBox_sizeCr);
             tabPage_uploadCross.Controls.Add(button_addCr);
             tabPage_uploadCross.Controls.Add(label1);
             tabPage_uploadCross.Controls.Add(pictureBox_CrPreview);
@@ -110,6 +121,23 @@
             tabPage_uploadCross.Size = new Size(550, 391);
             tabPage_uploadCross.TabIndex = 0;
             tabPage_uploadCross.Text = "Upload Crosshair";
+            // 
+            // numericSize
+            // 
+            numericSize.Location = new Point(100, 47);
+            numericSize.Name = "numericSize";
+            numericSize.Size = new Size(188, 32);
+            numericSize.TabIndex = 17;
+            numericSize.ValueChanged += numericSize_ValueChanged;
+            // 
+            // listBox2
+            // 
+            listBox2.FormattingEnabled = true;
+            listBox2.ItemHeight = 25;
+            listBox2.Location = new Point(6, 297);
+            listBox2.Name = "listBox2";
+            listBox2.Size = new Size(511, 79);
+            listBox2.TabIndex = 16;
             // 
             // button4
             // 
@@ -147,14 +175,14 @@
             label3.TabIndex = 7;
             label3.Text = "Yours profiles:";
             // 
-            // button1
+            // button_SaveCr
             // 
-            button1.Location = new Point(6, 82);
-            button1.Name = "button1";
-            button1.Size = new Size(282, 35);
-            button1.TabIndex = 6;
-            button1.Text = "Save Crosshair";
-            button1.UseVisualStyleBackColor = true;
+            button_SaveCr.Location = new Point(6, 82);
+            button_SaveCr.Name = "button_SaveCr";
+            button_SaveCr.Size = new Size(282, 35);
+            button_SaveCr.TabIndex = 6;
+            button_SaveCr.Text = "Save Crosshair";
+            button_SaveCr.UseVisualStyleBackColor = true;
             // 
             // button_setCr
             // 
@@ -174,13 +202,6 @@
             label2.TabIndex = 4;
             label2.Text = "set size";
             // 
-            // textBox_sizeCr
-            // 
-            textBox_sizeCr.Location = new Point(100, 44);
-            textBox_sizeCr.Name = "textBox_sizeCr";
-            textBox_sizeCr.Size = new Size(188, 32);
-            textBox_sizeCr.TabIndex = 3;
-            // 
             // button_addCr
             // 
             button_addCr.Location = new Point(6, 6);
@@ -189,6 +210,7 @@
             button_addCr.TabIndex = 2;
             button_addCr.Text = "Upload crosshair";
             button_addCr.UseVisualStyleBackColor = true;
+            button_addCr.Click += button_addCr_Click;
             // 
             // label1
             // 
@@ -201,9 +223,11 @@
             // 
             // pictureBox_CrPreview
             // 
+            pictureBox_CrPreview.BorderStyle = BorderStyle.FixedSingle;
             pictureBox_CrPreview.Location = new Point(294, 6);
             pictureBox_CrPreview.Name = "pictureBox_CrPreview";
             pictureBox_CrPreview.Size = new Size(250, 250);
+            pictureBox_CrPreview.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox_CrPreview.TabIndex = 0;
             pictureBox_CrPreview.TabStop = false;
             // 
@@ -231,12 +255,120 @@
             tabPage_createOwn.Controls.Add(label5);
             tabPage_createOwn.Controls.Add(label4);
             tabPage_createOwn.Controls.Add(pictureBox4);
-            tabPage_createOwn.Location = new Point(4, 34);
+            tabPage_createOwn.Location = new Point(4, 29);
             tabPage_createOwn.Name = "tabPage_createOwn";
             tabPage_createOwn.Padding = new Padding(3);
-            tabPage_createOwn.Size = new Size(550, 391);
+            tabPage_createOwn.Size = new Size(550, 396);
             tabPage_createOwn.TabIndex = 1;
             tabPage_createOwn.Text = "Create own";
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 25;
+            listBox1.Location = new Point(319, 299);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(225, 54);
+            listBox1.TabIndex = 32;
+            // 
+            // trackBar1
+            // 
+            trackBar1.Location = new Point(105, 215);
+            trackBar1.Name = "trackBar1";
+            trackBar1.Size = new Size(183, 56);
+            trackBar1.TabIndex = 31;
+            // 
+            // panel1
+            // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Location = new Point(153, 177);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(30, 30);
+            panel1.TabIndex = 30;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(6, 177);
+            label9.Name = "label9";
+            label9.Size = new Size(141, 25);
+            label9.TabIndex = 29;
+            label9.Text = "Choose color";
+            // 
+            // button8
+            // 
+            button8.Location = new Point(134, 277);
+            button8.Name = "button8";
+            button8.Size = new Size(122, 35);
+            button8.TabIndex = 28;
+            button8.Text = "Hide";
+            button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(6, 318);
+            button7.Name = "button7";
+            button7.Size = new Size(122, 35);
+            button7.TabIndex = 27;
+            button7.Text = "Save";
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(6, 277);
+            button6.Name = "button6";
+            button6.Size = new Size(122, 35);
+            button6.TabIndex = 26;
+            button6.Text = "Show";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(134, 318);
+            button5.Name = "button5";
+            button5.Size = new Size(122, 35);
+            button5.TabIndex = 25;
+            button5.Text = "Delete";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.Location = new Point(81, 220);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new Size(18, 17);
+            checkBox2.TabIndex = 23;
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(137, 126);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(18, 17);
+            checkBox1.TabIndex = 22;
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown3
+            // 
+            numericUpDown3.Location = new Point(137, 82);
+            numericUpDown3.Name = "numericUpDown3";
+            numericUpDown3.Size = new Size(152, 32);
+            numericUpDown3.TabIndex = 18;
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new Point(136, 44);
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(152, 32);
+            numericUpDown2.TabIndex = 17;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(136, 6);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(153, 32);
+            numericUpDown1.TabIndex = 16;
             // 
             // label13
             // 
@@ -312,128 +444,95 @@
             // tabPage_hotKeys
             // 
             tabPage_hotKeys.BackColor = Color.WhiteSmoke;
-            tabPage_hotKeys.Location = new Point(4, 34);
+            tabPage_hotKeys.Controls.Add(button11);
+            tabPage_hotKeys.Controls.Add(button10);
+            tabPage_hotKeys.Controls.Add(button9);
+            tabPage_hotKeys.Controls.Add(textBox3);
+            tabPage_hotKeys.Controls.Add(textBox2);
+            tabPage_hotKeys.Controls.Add(textBox1);
+            tabPage_hotKeys.Controls.Add(label14);
+            tabPage_hotKeys.Controls.Add(label11);
+            tabPage_hotKeys.Controls.Add(label10);
+            tabPage_hotKeys.Location = new Point(4, 29);
             tabPage_hotKeys.Name = "tabPage_hotKeys";
-            tabPage_hotKeys.Size = new Size(550, 391);
+            tabPage_hotKeys.Size = new Size(550, 396);
             tabPage_hotKeys.TabIndex = 2;
             tabPage_hotKeys.Text = "Hotkeys";
             // 
-            // numericUpDown1
+            // button11
             // 
-            numericUpDown1.Location = new Point(136, 6);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(153, 32);
-            numericUpDown1.TabIndex = 16;
+            button11.Location = new Point(336, 83);
+            button11.Name = "button11";
+            button11.Size = new Size(32, 32);
+            button11.TabIndex = 8;
+            button11.Text = "X";
+            button11.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown2
+            // button10
             // 
-            numericUpDown2.Location = new Point(136, 44);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(152, 32);
-            numericUpDown2.TabIndex = 17;
+            button10.Location = new Point(336, 44);
+            button10.Name = "button10";
+            button10.Size = new Size(32, 32);
+            button10.TabIndex = 7;
+            button10.Text = "X";
+            button10.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown3
+            // button9
             // 
-            numericUpDown3.Location = new Point(137, 82);
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(152, 32);
-            numericUpDown3.TabIndex = 18;
+            button9.Location = new Point(336, 7);
+            button9.Name = "button9";
+            button9.Size = new Size(32, 32);
+            button9.TabIndex = 6;
+            button9.Text = "X";
+            button9.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // textBox3
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(137, 126);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(18, 17);
-            checkBox1.TabIndex = 22;
-            checkBox1.UseVisualStyleBackColor = true;
+            textBox3.Location = new Point(205, 7);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(125, 32);
+            textBox3.TabIndex = 5;
             // 
-            // checkBox2
+            // textBox2
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(81, 220);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(18, 17);
-            checkBox2.TabIndex = 23;
-            checkBox2.UseVisualStyleBackColor = true;
+            textBox2.Location = new Point(205, 45);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(125, 32);
+            textBox2.TabIndex = 4;
             // 
-            // button5
+            // textBox1
             // 
-            button5.Location = new Point(134, 318);
-            button5.Name = "button5";
-            button5.Size = new Size(122, 35);
-            button5.TabIndex = 25;
-            button5.Text = "Delete";
-            button5.UseVisualStyleBackColor = true;
+            textBox1.Location = new Point(205, 83);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(125, 32);
+            textBox1.TabIndex = 3;
             // 
-            // button6
+            // label14
             // 
-            button6.Location = new Point(6, 277);
-            button6.Name = "button6";
-            button6.Size = new Size(122, 35);
-            button6.TabIndex = 26;
-            button6.Text = "Show";
-            button6.UseVisualStyleBackColor = true;
+            label14.AutoSize = true;
+            label14.Location = new Point(3, 86);
+            label14.Name = "label14";
+            label14.Size = new Size(196, 25);
+            label14.TabIndex = 2;
+            label14.Text = "Previous crosshair";
             // 
-            // button7
+            // label11
             // 
-            button7.Location = new Point(6, 318);
-            button7.Name = "button7";
-            button7.Size = new Size(122, 35);
-            button7.TabIndex = 27;
-            button7.Text = "Save";
-            button7.UseVisualStyleBackColor = true;
+            label11.AutoSize = true;
+            label11.Location = new Point(3, 45);
+            label11.Name = "label11";
+            label11.Size = new Size(157, 25);
+            label11.TabIndex = 1;
+            label11.Text = "Next crosshair";
             // 
-            // button8
+            // label10
             // 
-            button8.Location = new Point(134, 277);
-            button8.Name = "button8";
-            button8.Size = new Size(122, 35);
-            button8.TabIndex = 28;
-            button8.Text = "Hide";
-            button8.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(6, 177);
-            label9.Name = "label9";
-            label9.Size = new Size(141, 25);
-            label9.TabIndex = 29;
-            label9.Text = "Choose color";
-            // 
-            // panel1
-            // 
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Location = new Point(153, 177);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(30, 30);
-            panel1.TabIndex = 30;
-            // 
-            // trackBar1
-            // 
-            trackBar1.Location = new Point(105, 215);
-            trackBar1.Name = "trackBar1";
-            trackBar1.Size = new Size(183, 56);
-            trackBar1.TabIndex = 31;
-            // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 25;
-            listBox1.Location = new Point(319, 299);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(225, 54);
-            listBox1.TabIndex = 32;
-            // 
-            // listBox2
-            // 
-            listBox2.FormattingEnabled = true;
-            listBox2.ItemHeight = 25;
-            listBox2.Location = new Point(16, 296);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(511, 79);
-            listBox2.TabIndex = 16;
+            label10.AutoSize = true;
+            label10.Location = new Point(3, 9);
+            label10.Name = "label10";
+            label10.Size = new Size(135, 25);
+            label10.TabIndex = 0;
+            label10.Text = "Show / Hide";
             // 
             // MainForm
             // 
@@ -449,14 +548,17 @@
             tabControlMain.ResumeLayout(false);
             tabPage_uploadCross.ResumeLayout(false);
             tabPage_uploadCross.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericSize).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox_CrPreview).EndInit();
             tabPage_createOwn.ResumeLayout(false);
             tabPage_createOwn.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
             ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            tabPage_hotKeys.ResumeLayout(false);
+            tabPage_hotKeys.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -469,10 +571,9 @@
         private PictureBox pictureBox_CrPreview;
         private Button button_addCr;
         private Label label2;
-        private TextBox textBox_sizeCr;
         private Button button_setCr;
         private Label label3;
-        private Button button1;
+        private Button button_SaveCr;
         private Button button4;
         private Button button3;
         private Button button2;
@@ -500,5 +601,15 @@
         private TrackBar trackBar1;
         private ListBox listBox1;
         private ListBox listBox2;
+        private Label label10;
+        private Button button11;
+        private Button button10;
+        private Button button9;
+        private TextBox textBox3;
+        private TextBox textBox2;
+        private TextBox textBox1;
+        private Label label14;
+        private Label label11;
+        private NumericUpDown numericSize;
     }
 }
